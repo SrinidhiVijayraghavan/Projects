@@ -1,0 +1,86 @@
+<?php
+include_once "db.php";
+$r = $_POST["result"];
+$empid = $_POST["empid"];
+$dept  = $_POST['dept'];
+
+$res = explode("|", $r);
+$one   = "N";
+$two   = "N";
+$three = "N";
+$four  = "N";
+$five  = "N";
+
+if ($res[0] == "Y") $one = "Y";
+if ($res[1] == "Y") $two = "Y";
+if ($res[2] == "Y") $three = "Y";
+if ($res[3] == "Y") $four = "Y";
+if ($res[4] == "Y") $five = "Y";
+
+echo $one;
+echo $two;
+echo $three;
+echo $four;
+echo $five;
+
+$query = "insert into feedback(empid,dept,q1,q2,q3,q4,q5)   values('$empid','$dept','$one','$two','$three','$four','$five')";
+			   	
+if (!mysqli_query($connection,$query))
+  {
+  echo("Error description: " . mysqli_error($connection));
+  echo "<script> alert ('Record Updated Failed'); </script>";
+  }
+  else
+  {
+	  echo "<script> alert ('Record Updated '); </script>";
+}
+
+  mysqli_close($connection);
+echo "<script> location.replace('index.php'); </script>";
+?>
+<?php
+
+include_once "db.php";
+
+$r = $_POST["result"];
+$empid = $_POST["empid"];
+$dept  = $_POST['dept'];
+
+$res = explode("|", $r);
+
+$one   = "N";
+$two   = "N";
+$three = "N";
+$four  = "N";
+$five  = "N";
+
+if ($res[0] == "Y") $one = "Y";
+if ($res[1] == "Y") $two = "Y";
+if ($res[2] == "Y") $three = "Y";
+if ($res[3] == "Y") $four = "Y";
+if ($res[4] == "Y") $five = "Y";
+
+echo $one;
+echo $two;
+echo $three;
+echo $four;
+echo $five;
+
+$query = "insert into feedback(empid,dept,q1,q2,q3,q4,q5)  
+ values('$empid','$dept','$one','$two','$three','$four','$five')";
+			   	
+if (!mysqli_query($connection,$query))
+  {
+  echo("Error description: " . mysqli_error($connection));
+  echo "<script> alert ('Record Updated Failed'); </script>";
+  }
+  else
+  {
+	  echo "<script> alert ('Record Updated '); </script>";
+  }
+ mysqli_close($connection);
+echo "<script> location.replace('index.php'); </script>";
+?>
+
+
+

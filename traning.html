@@ -1,0 +1,27 @@
+<?php
+include_once "db.php";
+$uname = $_POST['username'];
+$pass  = $_POST['password'];
+$empid = $_POST['empid'];
+
+if ($uname == 'test' && $pass == 'test123')
+	{
+ $sql="SELECT * FROM  employee where emp_id = $empid ";
+$result=mysqli_query($connection,$sql);
+$row = $result->fetch_assoc();
+if ($row['emp_id'] != $empid)
+	{
+		echo "<script> alert ('Not a Valid Employee '); </script>";
+		echo "<script> history.go(-1); </script>";
+	}
+	}
+	else
+	{	
+if ($uname == 'rep'  && $pass == 'rep')
+	{
+		echo "<script> location.replace('report.php'); </script>";
+	}
+echo "<script> alert ('Enter a Valid Username & Password'); </script>";
+echo "<script> history.go(-1); </script>";
+}
+?>

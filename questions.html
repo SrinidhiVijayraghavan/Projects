@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Untitled Page</title>
+ <style type="text/css">
+html, body
+{
+   height: 100%;
+}
+div#space
+{
+   width: 1px;
+   height: 50%;
+   margin-bottom: -300px;
+   float:left
+}
+div#container
+{
+   width: 800px;
+   height: 600px;
+   margin: 0 auto;
+   position: relative;
+   clear: left;
+}
+</style>
+<style type="text/css">
+body
+{
+   margin: 0;
+   padding: 0;
+   background-color: #E6E6FA;
+   color: #000000;
+}
+</style>
+<style type="text/css">
+a:hover
+{
+   color: #7CDACC;
+}
+</style>
+</head>
+<body>
+<div id="space"><br></div>
+<div id="container">
+<div id="bv_Form1" style="position:absolute;background-color:#FFFFE0;left:44px;top:155px;width:730px;height:262px;z-index:0">
+</div>
+<form name="Form1" method="post" action="question.php" >
+<div id="bv_Text1" style="margin:0;padding:0;position:absolute;left:192px;top:24px;width:414px;height:68px;text-align:left;z-index:1;">
+<font style="font-size:48px" color="#A52A00" face="Arial Black">Feedback Form</font></div>
+<div id="bv_Text2" style="margin:0;padding:0;position:absolute;left:312px;top:96px;width:216px;height:27px;text-align:left;z-index:2;">
+<font style="font-size:19px" color="#A52A00" face="Arial Black">Select Department</font></div>
+<input type="text" id="Editbox1" style="position:absolute;left:336px;top:192px;width:262px;height:20px;border:1px #C0C0C0 solid;font-family:'Courier New';font-size:16px;z-index:3" name="empid" value="<?php echo $empid; ?>" readonly="readonly">
+<div id="bv_Text3" style="margin:0;padding:0;position:absolute;left:168px;top:192px;width:192px;height:18px;text-align:left;z-index:4;">
+<font style="font-size:16px" color="#000000" face="Arial">Employee ID :</font></div>
+<div id="bv_Text4" style="margin:0;padding:0;position:absolute;left:168px;top:240px;width:144px;height:18px;text-align:left;z-index:5;">
+<font style="font-size:16px" color="#000000" face="Arial">Employee Name :</font></div>
+<input type="text" id="Editbox2" style="position:absolute;left:336px;top:240px;width:262px;height:20px;border:1px #C0C0C0 solid;font-family:'Courier New';font-size:16px;z-index:6" name="ename" value="<?php echo $row['emp_name']; ?>" readonly="readonly">
+<div id="bv_Text5" style="margin:0;padding:0;position:absolute;left:168px;top:288px;width:144px;height:18px;text-align:left;z-index:7;">
+<font style="font-size:16px" color="#000000" face="Arial">Select Training :</font></div>
+<div style="position:absolute;left:337px;top:288px;width:261px;height:18px;border:1px #C0C0C0 solid;z-index:8">
+<select name="dept" size="1" id="Combobox1" style="position:absolute;left:0px;top:0px;width:100%;height:100%;border-width:0px;font-family:Arial;font-size:14px;">
+<option value="t1"> Induction Training </option>
+<option value="t2"> Computer Awareness </option>
+<option value="t3">  Discipline and Litigation </option>
+<option value="t4"> Safety and Security  </option>
+<option value="t5"> Advanced MS Office </option>
+</select>
+</div>
+<input type="submit" id="Button1" name="Button1" value="Submit" style="position:absolute;left:595px;top:365px;width:75px;height:24px;font-family:Arial;font-size:13px;z-index:9">
+<input type="hidden" name="empid" value="<?php echo $empid; ?>"> 
+</div>
+</form>
+</body>
+</html>

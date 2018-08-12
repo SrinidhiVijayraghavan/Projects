@@ -1,0 +1,198 @@
+<?php
+include_once "db.php";
+$empid = $_POST['empid'];
+$dept  = $_POST['dept'];
+?>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Untitled Page</title>
+<style type="text/css">
+html, body
+{
+   height: 100%;
+}
+div#space
+{
+   width: 1px;
+   height: 50%;
+   margin-bottom: -300px;
+   float:left
+}
+div#container
+{
+   width: 800px;
+   height: 600px;
+   margin: 0 auto;
+   position: relative;
+   clear: left;
+}
+</style>
+<style type="text/css">
+body
+{
+   margin: 0;
+   padding: 0;
+   background-color: #E6E6FA;
+   color: #000000;
+}
+</style>
+<style type="text/css">
+a:hover
+{
+   color: #7CDAA9;
+}
+</style>
+<script> 
+function Toggle(checkbox,box) {
+if (box == 1){
+		var checkboxes = document.getElementsByName('one[]')
+		checkboxes.forEach((item) => {
+			if (item !== checkbox) item.checked = false
+		}
+	}
+if (box == 2){
+		var checkboxes = document.getElementsByName('two[]')
+		checkboxes.forEach((item) => {
+			if (item !== checkbox) item.checked = false
+		}
+	}
+if (box == 3){
+		var checkboxes = document.getElementsByName('three[]')
+		checkboxes.forEach((item) => {
+			if (item !== checkbox) item.checked = false
+		}
+	}
+if (box == 4){
+		var checkboxes = document.getElementsByName('four[]')
+		checkboxes.forEach((item) => {
+			if (item !== checkbox) item.checked = false
+		}
+	}
+if (box == 5){
+                              var checkboxes = document.getElementsByName('five[]')
+		checkboxes.forEach((item) => {
+			if (item !== checkbox) item.checked = false
+		}
+	}
+	}
+function Fsubmit()
+{
+	var one = "Y";
+	var two = "Y";
+	var three = "Y";
+	var four = "Y";
+	var five = "Y";
+	if (document.getElementById("1y").checked == false)
+		one = "N";
+	if (document.getElementById("2y").checked == false)
+		two =  "N";
+	if (document.getElementById("3y").checked == false)
+		three = "N";
+	if (document.getElementById("4y").checked == false)
+		four =  "N";
+	if (document.getElementById("5y").checked == false)
+		five = "N";
+	var str = one+"|"+two+"|"+three+"|"+four+"|"+five;
+	document.getElementById("result").value = str;
+              document.theForm.submit()
+}
+</script>
+</head>
+<body>
+<div id="space"><br></div>
+<div id="container">
+<form name="theForm" action="update.php" method="post">
+<div id="bv_Text1" style="margin:0;padding:0;position:absolute;left:192px;top:24px;width:414px;height:68px;text-align:left;z-index:0;">
+<font style="font-size:48px" color="#A52A00" face="Arial Black">Feedback Form</font></div>
+<div id="bv_Text2" style="margin:0;padding:0;position:absolute;left:312px;top:96px;width:216px;height:27px;text-align:left;z-index:1;">
+<font style="font-size:19px" color="#A52A00" face="Arial Black">Questionaire Form</font></div>
+<div id="bv_Table1" style="margin:0;padding:0;position:absolute;left:26px;top:161px;width:733px;height:77px;text-align:left;z-index:2;">
+<table style="position:absolute;left:$LEFT$px;top:$TOP$px;width:735px;height:79px;z-index:2;border:1px #C0C0C0 solid;" cellpadding="0" cellspacing="1" id="Table1">
+
+<tr>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:96px;height:34px;">
+<font style="font-size:16px" color="#000000" face="Arial"><b>SL.No.</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:396px;height:34px;">
+<font style="font-size:16px" color="#000000" face="Arial"><b>Question</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:114px;height:34px;">
+<font style="font-size:16px" color="#000000" face="Arial"><b>Yes</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;height:34px;">
+<font style="font-size:16px" color="#000000" face="Arial"><b>No</b></font></td>
+</tr>
+
+<tr>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:96px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>1</b></font></td>
+<td align="left" valign="middle" style="border:1px #C0C0C0 solid;width:396px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>&nbsp; Whether the basic requirements were provided ?</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:114px;height:36px;">
+<input type="checkbox" id="1y" name="one[]"    onclick="Toggle(this,1)">
+</td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;height:36px;">
+<input type="checkbox" id="1n" name="one[]"   onclick="Toggle(this,1)" > 
+</td>
+</tr>
+
+<tr>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:96px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>2</b></font></td>
+<td align="left" valign="middle" style="border:1px #C0C0C0 solid;width:396px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>&nbsp; Whether the necessary resources were provided ?</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:114px;height:36px;">
+<input type="checkbox" id="2y" name="two[]"  onclick="Toggle(this,2)">
+</td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;height:36px;">
+<input type="checkbox" id="2n" name="two[]"  onclick="Toggle(this,2)"> 
+</td>
+</tr>
+
+<tr>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:96px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>3</b></font></td>
+<td align="left" valign="middle" style="border:1px #C0C0C0 solid;width:396px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>&nbsp; Is  Team leader/Co-worker co-operative with you ?</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:114px;height:36px;">
+<input type="checkbox" id="3y" name="three[]"  onclick="Toggle(this,3)"> 
+</td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;height:36px;">
+<input type="checkbox" id="3n" name="three[]"  onclick="Toggle(this,3)"> 
+</tr>
+
+<tr>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:96px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>4</b></font></td>
+<td align="left" valign="middle" style="border:1px #C0C0C0 solid;width:396px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>&nbsp; Are you forced to work overtime ?</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:114px;height:36px;">
+<input type="checkbox" id="4y" name="four[]"  onclick="Toggle(this,4)"> 
+</td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;height:36px;">
+<input type="checkbox" id="4n" name="four[]"  onclick="Toggle(this,4)"> 
+</td>
+</tr>
+
+<tr>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:96px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>5</b></font></td>
+<td align="left" valign="middle" style="border:1px #C0C0C0 solid;width:396px;height:36px;">
+<font style="font-size:13px" color="#000000" face="Arial"><b>&nbsp; Are you happy with your salary package ?</b></font></td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;width:114px;height:36px;">
+<input type="checkbox" id="5y" name="five[]"  onclick="Toggle(this,5)"> 
+</td>
+<td align="center" valign="middle" style="border:1px #C0C0C0 solid;height:36px;">
+<input type="checkbox" id="5n" name="five[]"  onclick="Toggle(this,5)"> 
+</td>
+</tr>
+</table>
+</div>
+<input type="button" onclick="Fsubmit()" value="Submit" style="position:absolute;left:613px;top:450px;width:75px;height:24px;font-family:Arial;font-size:13px;z-index:5">
+<input type="hidden" id = "result" name="result" value="">
+<input type="hidden"  name="empid" value="<?php echo $empid; ?>" >
+<input type="hidden"  name="dept" value="<?php echo $dept; ?>" >
+</div>
+</form>
+</div>
+</body>
+</html>
